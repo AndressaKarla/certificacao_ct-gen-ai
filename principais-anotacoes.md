@@ -289,3 +289,281 @@ Prompts de usuário
             Cumprir tarefas específicas
             Fornecer as informações necessárias
 ```
+## 2.2 Aplicação de Técnicas da Engenharia de Prompts a Tarefas de Teste de Software 
+### Engenharia de prompts para tarefas de teste
+```
+Análise de teste
+    Identificação de defeitos
+    Geração de condições de teste
+    Priorização das condições de teste
+    Análise de cobertura
+    Sugestão de técnicas de teste
+
+Projeto de teste
+    Geração de casos de teste
+    Síntese de dados de teste
+    Geração de scripts
+    Programação e priorização da execução dos testes
+
+Automação de teste de regressão
+    Scripts orientados por palavras-chave
+    Análise de impacto
+    Testes autocorretivos
+    Relatórios automatizados
+
+Monitoramento e controle de teste
+    Monitoramento de testes e análise de métricas
+    Controle de testes adaptativos
+    Insights de conclusão e aprendizado contínuo
+    Visualização e relatórios aprimorados de métricas de teste
+```
+##  2.3 Avaliar os Resultados da AI Generativa e Refinar as Instruções para as Tarefas de Teste de Software
+### 2.3.1 Métricas para avaliar os resultados da AI generativa em tarefas de teste de software
+```
+Acurácia -> PALAVRAS-CHAVE: Geral/Todo
+    Descrição 
+        Mede a correção geral do resultado em relação a referência
+
+    Exemplo - 100% de acurácia -> Casos de testes que cobrem 100% dos requisitos
+        Grau em que os casos de testes gerados abrangem todos os requisitos especificados
+
+Precisão -> PALAVRAS-CHAVE: Execução/Resultado obtido
+    Descrição 
+        Avalia a correção do resultado em relação ao objetivo específico
+
+    Exemplo - 80% de precisão -> 100 casos de testes, mas 80 cobrem corretamente as anomalias
+        Grau em que os casos de testes gerados identificam corretamente as anomalias
+
+Recuperação -> PALAVRAS-CHAVE: Mínimo necessário
+    Descrição
+        Mede a capacidade de identificar as instâncias relevantes dos dados 
+
+    Exemplo 
+        Grau em que os casos de teste gerados abrangem a partição de equivalência válida e inválida em uma classe de dados
+
+Relevância e ajuste contextual  
+    Descrição 
+        Determina se o resultado é aplicável e apropriado
+
+    Exemplo
+        Grau em que os casos de teste gerados são consistentes com a base de teste e integram os requisitos específicos de domínio
+
+Diversidade  
+    Descrição 
+        Garante a cobertura de uma variedade de entradas e cenários sem repetição
+
+    Exemplo      
+        Grau em que os casos de teste gerados abrangem os comportamentos do usuário e exploram casos extremos    
+
+Taxa de sucesso da execução 
+    Descrição  
+        Mede a proporção de casos/scripts de teste gerados que podem ser executados com êxito
+
+    Exemplo  
+        Quantidade de casos/scripts de teste gerados que podem ser executados sem erros
+
+Eficiência de tempo 
+    Descrição  
+        Avalia a economia de tempo em relação aos testes manuais 
+
+    Exemplo  
+        Comparação de tempo exigido pela AI para gerar casos de teste em relação à criação manual por um ser humano 
+
+```
+##  2.3.2 Técnicas de avaliação e refinamento iterativo de prompts
+```
+Modificação iterativa do prompt
+    Teste A/B de prompts
+        Criar várias versões de prompts e avaliar qual versão produz melhor resultado com base em métricas predefinidas
+
+    Análise de resultados -> PALAVRAS-CHAVE: Retrospectiva
+
+    Integração do feedback do usuário -> PALAVRAS-CHAVE: Revisão entre equipe
+
+    Ajuste do comprimento e especificidade do prompt
+
+```
+# 3. GERENCIANDO RISCOS DE AI GENERATIVA EM TESTE DE SOFTWARE
+## 3.1 Alucinações, Erros de Raciocínio e Vieses 
+Defeitos que reduzem a qualidade do testware (artefatos de teste) gerado e que podem reaparecer por causa do comportamento não determinístico
+  - Resultam da natureza dos dados de treinamento e das limitações do modelo transformador
+      - O reconhecimento e a abordagem aplicada para estes desafios podem aumentar a qualidade dos resultados nos processos de teste
+```
+Alucinações
+    LLM gera/cria resultados/informações que parecem factualmente incorretos/irrelevantes para uma determinada tarefa
+
+    Ex.: Criação de casos de testes fictícios/irrelevantes
+
+Erros de raciocínio 
+    LLM interpreta erroneamente estruturas lógicas, pois não tem raciocínio lógico verdadeiro e depende de correspondência de padrões 
+    
+    Ex.: Planejamento e priorização de casos de testes
+
+Vieses 
+    LLM utiliza dados no qual foi treinado que leva a resultados que favorecem determinados tipos 
+        Informações
+        Abordagens
+        Suposições
+
+    Ex.: LLM treinado a dar exemplos de CEP's de uma determinada região vai acabar gerando CEP's da mesma região que foi treinado
+```
+### Detecções
+```
+Detecção de alucinação 
+    Verificação cruzada
+        Comparar a saída com
+            Documentação
+
+            Requisitos
+
+            Comportamento conhecido do sistema
+
+    Consulta a especialistas no domínio
+
+Detecção de erros de raciocínio 
+    Validação lógica
+        Avaliar a coerência e correção do fluxo lógico
+
+    Teste de saída
+        Executar casos/scripts de teste gerados para verificar resultados
+
+Detecção de vieses
+    Revisão do material de teste
+        Avaliar a representação justa e precisa de dados de teste sintéticos
+
+    Avaliação de vieses por tipo de teste
+        Identificar sub-representação de testes
+            Ex.: testes não funcionais
+
+```  
+### Mitigações
+```
+Mitigação para atenuar os riscos da GenAI 
+    Fornecer contexto completo 
+
+    Dividir os prompts
+
+    Usar formato de dados claros e interpretáveis
+
+    Comparar resultados entre modelos
+        Teste A/B de prompts
+
+Mitigação do comportamento não determinístico (probabilístico) dos LLMs
+    Temperatura -> PALAVRAS-CHAVE: Resultado consistente
+        Parâmetro que controla a aleatoriedade/criatividade dos resultados de um LLM
+
+        Próximo a 0 -> menor aleatoriedade/criatividade - maior determinismo
+            Ex.: Criação de casos de teste
+
+        Longe de 0 -> maior aleatoriedade/criatividade - menor determinismo
+            Ex.: Geração de imagens
+
+    Sementes aleatórias -> PALAVRAS-CHAVE: Mesmo resultado 
+        Definição de um valor fixo de semente para o gerador de números aleatórios garantir que a mesma sequência pseudoaletória seja usada para melhorar a reprodutibilidade
+```
+## 3.2 Privacidade de dados e riscos de segurança da AI generativa em teste de software 
+### Vetores de Ataques Comuns
+```
+Exfiltração de dados -> PALAVRAS-CHAVE: Exceder janela de contexto
+    Descrição
+        Envio de solicitações projetadas para extrair dados de treinamento confidenciais
+
+    Exemplo
+        Exceder a janela de contexto do LLM com solicitações longas
+            Para sobrecarregar a memória da AI
+                Pode levar a AI a revelar trechos/informações confidenciais
+
+Manipulação de solicitações -> PALAVRAS-CHAVE: Sites piratas que NÃO devem ser acessados; Esteganografia com Prompt Injection em imagens utilizando OCR (Reconhecimento Óptico de Caracteres)
+    Descrição
+        Introdução de dados que atrapalhem o resultado da AI
+
+    Exemplo
+        Introduzir imagens que atraem a AI para um contexto diferente
+            Para provocar alucinações
+
+Envenenamento de dados -> PALAVRAS-CHAVE: Dados de treinamento
+    Descrição
+        Manipulação de dados de treinamento
+
+    Exemplo
+        Fornecer avaliações falsas ao classificar os resultados de um relatório de teste gerado por AI
+
+Geração de código malicioso -> PALAVRAS-CHAVE: Backdoors (chamadas de comandos externos); Uso
+    Descrição
+        Manipulação de um LLM para gerar backdoors (chamadas de comandos externos) durante o uso
+
+    Exemplo
+        Gerar um código para abrir um canal de comunicação com um IP específico e malicioso
+
+```
+### Mitigações 
+```
+Minimização, anonimização e pseudonimização de dados
+Treinamento de recursos
+Manter-se atualizado com as práticas recomendadas de segurança
+```
+## 3.3 Consumo de energia e impacto ambiental da AI generativa em teste de software
+### 
+```
+Impacto no consumo de energia e emissões de CO2 
+    Alto consumo de energia devido
+        Complexidade da tarefa e os recursos computacionais necessários
+
+        Efeito cumulativo com milhões de usuários
+
+    Práticas de mitigação
+        Limitação de interações desnecessárias entre modelos
+```
+##  3.4 Regulamentações, padrões e estruturas de AI generativa em teste de software
+```
+Norma "ISO/IEC 42001:2023 TI - IA - Sistema de gerenciamento" -> PALAVRAS-CHAVE: Aderência às práticas recomendadadas, Consistência, Confiabilidade
+    Descrição
+        Especifica os requisitos para o gerenciamento de sistemas de AI em uma organização
+        
+    Aplicação em teste
+        Garante que a AI generativa em teste de software adere às práticas recomendadadas
+            Promovendo consistência e confiabilidade
+
+Padrão "ISO/IEC 23053:2022 Estrutura para sistemas de IA usando Machine Learning" -> PALAVRAS-CHAVE: Tolerância a falhas, Transparência
+    Descrição   
+        Fornece uma estrutura para processos de ciclo de vida de AI
+            Enfatizando a tolerância a falhas e a transparência
+
+    Aplicação em teste
+        Fornece uma estrutura para qualidade de dados, transparência e tolerância a falhas ao usar a AI generativa para teste de software
+
+Regulamento "Lei de AI da UE" -> PALAVRAS-CHAVE: Classificação/Níveis de risco, Obrigação legal
+    Descrição
+        Estabelece uma estrutura legal que aborda os riscos de AI
+            Classificando os aplicativos por nível de risco
+
+    Aplicação em teste
+        Obriga a conformidade com a transparência, a responsabilidade e mitigação de vieses para a AI generativa usada em teste de software
+
+Estrutura "Estrutura de gerenciamento de riscos de AI do NIST AI RMF (EUA)" -> PALAVRAS-CHAVE: Imparcialidade, Justiça, Segurança, Evitar resultados tendenciosos 
+    Descrição
+        Oferece diretrizes para o gerenciamento de riscos de AI
+            Com foco em justiça, transparência e segurança
+
+    Aplicação em teste
+        Garante a imparcialidade e reduz riscos de AI generativa
+            Evitando resultados de testes tendenciosos
+```
+# 4. INFRAESTRUTURA DE TESTE COM TECNOLOGIA LLM PARA TESTE DE SOFTWARE
+## 4.1 Abordagens Arquitetônicas para Infraestrutura de Teste com Tecnologia LLM 
+```
+Ampliam a funcionalidade e a utilidade do uso de LLM
+    Geração aumentada por recuperação (RAG)
+        Ex.: NotebookLM
+
+    Arquiteturas de agentes com tecnologia LLM
+``` 
+### 4.1.1 Principais componentes e conceitos arquitetônicos da infraestrutura de teste com tecnologia LLM
+```
+Componentes da infraestrutura de teste com LLM 
+    Front-end
+    Back-end
+    LLM integrado
+    Fonte de dados externas
+```
+# 5. Implementação e integração da AI generativa em organizações de teste 
