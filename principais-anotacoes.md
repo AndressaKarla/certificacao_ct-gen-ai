@@ -565,5 +565,31 @@ Componentes da infraestrutura de teste com LLM
     Back-end
     LLM integrado
     Fonte de dados externas
+```  
+## 4.2 Ajuste Fino e LLMOps: Operacionalização da AI Generativa para teste de software
 ```
-# 5. Implementação e integração da AI generativa em organizações de teste 
+Ajuste fino 
+    Adaptar LLM/SLM pré-treinado para executar tarefas específicas
+
+Gerenciamento do pipeline operacional (LLMOps)
+    Conjunto de práticas, ferramentas e processos projetados para simplificar o desenvolvimento, a implementação e a manutenção de LLMs em ambientes de produção
+
+```
+# 5. IMPLEMENTAÇÃO E INTEGRAÇÃO DA AI GENERATIVA EM ORGANIZAÇÕES DE TESTE 
+```
+AI invisível (Shadow AI)
+    Uso de ferramentas ou sistemas GenAI em uma organização sem aprovação ou supervisão formal
+```
+## 5.1.4 Fases da adoção da AI generativa em testes de software 
+### Des - In & Def Us - Ut & It
+```
+"Des"coberta
+"In"iciação e "Def"inição de "Us"o
+"Ut"ilização e "It"eração
+```
+## 5.2.3 Evolução dos processos de teste em organizações de teste habilitadas para IA 
+```
+Com a adoção da AI generativa
+    O papel de um testador evolui de especialista em projeto e execução de testes para especialista em testes assistidos por AI
+    O gerente de teste se concentra na supervisão de equipes híbridas (humanos e agentes de testes GenAI)
+```
