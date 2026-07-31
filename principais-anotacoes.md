@@ -58,12 +58,6 @@ Modelos multimodais
     Capazes de processar e gerar conteúdo em vários tipos de dados
         texto, imagem e áudio
 
-Modelos multimodais
-    Modelos de AI Generativa
-
-    Capazes de processar e gerar conteúdo em vários tipos de dados
-        texto, imagem e áudio
-
 ```
 ## 1.1.1 Espectro de AI: AI simbólica, machine learning clássico, deep learning e AI generativa 
 ### Tipos de tecnologia da AI - Linha do tempo
